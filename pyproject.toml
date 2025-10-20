@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claudecodeswitch"
+version = "0.1.0"
+description = "A tool for switching between different Claude API configurations"
+requires-python = ">=3.10"
+dependencies = [
+    "colorama>=0.4.6",
+]
+
+[project.scripts]
+ccs = "main:main"  # 命令名=模块:函数
