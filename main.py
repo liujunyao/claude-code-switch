@@ -90,26 +90,28 @@ def set_environment_variables(service):
             # 只能打印出命令供用户执行
             print(f"{Fore.GREEN}要在当前命令行会话中设置环境变量，请执行以下命令:")
             print(f"{Fore.GREEN}cmd:")
-            print(f"{Fore.CYAN}set ANTHROPIC_AUTH_TOKEN={api_key} && set ANTHROPIC_BASE_URL={base_url}")
+            print(f"{Fore.CYAN}set ANTHROPIC_AUTH_TOKEN={api_key} && set ANTHROPIC_API_KEY={api_key} && set ANTHROPIC_BASE_URL={base_url}")
             print(f"{Fore.GREEN}power shell:")
-            print(f"{Fore.CYAN}$env:ANTHROPIC_AUTH_TOKEN=\"{api_key}\"; $env:ANTHROPIC_BASE_URL=\"{base_url}\"")
+            print(f"{Fore.CYAN}$env:ANTHROPIC_AUTH_TOKEN=\"{api_key}\"; $env:ANTHROPIC_API_KEY=\"{api_key}\"; $env:ANTHROPIC_BASE_URL=\"{base_url}\"")
             print(f"{Fore.YELLOW}注意: 这些设置仅在当前命令行窗口有效")
             print(f"{Fore.YELLOW}如需永久设置，请使用以下命令:")
-            print(f"{Fore.CYAN}setx ANTHROPIC_AUTH_TOKEN \"{api_key}\" && setx ANTHROPIC_BASE_URL \"{base_url}\"")
+            print(f"{Fore.CYAN}setx ANTHROPIC_AUTH_TOKEN \"{api_key}\" && setx ANTHROPIC_API_KEY \"{api_key}\" && setx ANTHROPIC_BASE_URL \"{base_url}\"")
         elif system == "Darwin" or system == "Linux":  # macOS或Linux
             # 由于Python进程无法直接修改父shell的环境变量，
             # 我们需要打印出命令让用户执行
             print(f"{Fore.GREEN}要在当前shell会话中设置环境变量，请执行以下命令:")
-            print(f"{Fore.CYAN}export ANTHROPIC_AUTH_TOKEN='{api_key}' && export ANTHROPIC_BASE_URL='{base_url}'")
+            print(f"{Fore.CYAN}export ANTHROPIC_AUTH_TOKEN='{api_key}' && export ANTHROPIC_API_KEY='{api_key}' && export ANTHROPIC_BASE_URL='{base_url}'")
         else:
             print(f"{Fore.YELLOW}警告: 不支持的操作系统 {system}")
             print(f"{Fore.GREEN}请手动设置以下环境变量:")
             print(f"{Fore.CYAN}ANTHROPIC_AUTH_TOKEN = {api_key}")
+            print(f"{Fore.CYAN}ANTHROPIC_API_KEY = {api_key}")
             print(f"{Fore.CYAN}ANTHROPIC_BASE_URL = {base_url}")
 
         # 显示设置的环境变量值（完整显示API Key）
         print(f"{Fore.GREEN}环境变量值:")
         print(f"{Fore.GREEN}ANTHROPIC_AUTH_TOKEN = {api_key}")
+        print(f"{Fore.GREEN}ANTHROPIC_API_KEY = {api_key}")
         print(f"{Fore.GREEN}ANTHROPIC_BASE_URL = {base_url}")
 
         return True
